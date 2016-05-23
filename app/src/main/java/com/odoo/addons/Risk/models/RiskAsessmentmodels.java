@@ -12,12 +12,12 @@ import com.odoo.core.support.OUser;
 public class RiskAsessmentmodels extends OModel {
     public static final String TAG = RiskAsessmentmodels.class.getSimpleName();
 
-    // public static final String AUTHORITY = "com.odoo.core.provider.res_partner";
-    //burayi degistirdim
+    
 
     public static final String AUTHORITY = "com.odoo.addons.Risk.isg_risk_assesment";
 
     OColumn name = new OColumn("name", OVarchar.class).setName("name");
+    OColumn assesment_method = new OColumn("assesment_method", OVarchar.class).setName("assesment_method");
 
     public RiskAsessmentmodels(Context context, OUser user) {
 

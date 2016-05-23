@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:modelName="res.partner">
+                    app:modelName="isg.risk_assesment">
 
                     <odoo.controls.OField
                         android:id="@+id/is_company"
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:orientation="vertical"
-            app:modelName="res.partner">
+            app:modelName="isg.risk_assesment">
 
             <RelativeLayout
                 android:layout_width="match_parent"

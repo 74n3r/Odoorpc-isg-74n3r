@@ -53,7 +53,7 @@
                 android:paddingTop="@dimen/default_16dp">
 
                 <odoo.controls.OForm
-                    android:id="@+id/customerForm"
+                    android:id="@+id/riskForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -147,7 +147,7 @@
     </com.odoo.widgets.parallax.ParallaxScrollView>
 
     <ScrollView
-        android:id="@+id/customerScrollViewEdit"
+        android:id="@+id/riskScrollViewEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -156,7 +156,7 @@
         android:visibility="gone">
 
         <odoo.controls.OForm
-            android:id="@+id/customerFormEdit"
+            android:id="@+id/riskFormEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"

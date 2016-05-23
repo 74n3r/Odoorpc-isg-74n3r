@@ -105,10 +105,8 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
         }
         OControls.setImage(view, R.id.image_small, img);
         OControls.setText(view, R.id.name, row.getString("name"));
-        OControls.setText(view, R.id.company_name, (row.getString("company_name").equals("false"))
-                ? "" : row.getString("company_name"));
-        OControls.setText(view, R.id.email, (row.getString("email").equals("false") ? " "
-                : row.getString("email")));
+        OControls.setText(view, R.id.company_name, (row.getString("company_name").equals("false"))  ? "" : row.getString("company_name"));
+        OControls.setText(view, R.id.email, (row.getString("email").equals("false") ? " "  : row.getString("email")));
     }
 
     @Override
