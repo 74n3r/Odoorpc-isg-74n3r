@@ -68,7 +68,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
     private ListView mPartnersList = null;
     private OCursorListAdapter mAdapter = null;
     private boolean syncRequested = false;
-    private Type mType = Type.Customer;
+    private Type mType = Type.Riskassesment;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -165,7 +165,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
         List<ODrawerItem> items = new ArrayList<>();
         items.add(new ODrawerItem(KEY).setTitle("Risk Değerlendirme")
                 .setIcon(R.drawable.ic_action_customers)
-                .setExtra(extra(Type.Customer))
+                .setExtra(extra(Type.Riskassesment))
                 .setInstance(new RiskAsessment()));
 
         return items;
@@ -235,8 +235,8 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
         if (row != null) {
             data = row.getPrimaryBundleData();
         }
-        data.putString(CustomerDetails.KEY_PARTNER_TYPE, mType.toString());
-        IntentUtils.startActivity(getActivity(), CustomerDetails.class, data);
+        data.putString(RiskassesmentDetails.KEY_PARTNER_TYPE, mType.toString());
+        IntentUtils.startActivity(getActivity(), RiskassesmentDetails.class, data);
     }
 
     @Override
@@ -247,6 +247,6 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
 
 
     public enum Type {
-        Customer, Supplier, Company
+        Customer, Supplier, Company ,Riskassesment
     }
 }

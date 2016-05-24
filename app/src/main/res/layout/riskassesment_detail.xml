@@ -24,6 +24,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="-56dp">
 
+                <ImageView
+                    android:id="@android:id/icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/user_xlarge" />
             </FrameLayout>
 
             <TextView
@@ -47,7 +53,7 @@
                 android:paddingTop="@dimen/default_16dp">
 
                 <odoo.controls.OForm
-                    android:id="@+id/riskassesmentForm"
+                    android:id="@+id/riskForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -62,14 +68,13 @@
                         app:showLabel="false"></odoo.controls.OField>
 
                     <odoo.controls.OField
-                        android:id="@+id/website"
+                        android:id="@+id/subject"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="website"
+                        app:fieldName="subject"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         app:iconResource="@drawable/ic_action_universe"></odoo.controls.OField>
-
 
                     <odoo.controls.OField
                         android:id="@+id/email"
@@ -141,7 +146,7 @@
     </com.odoo.widgets.parallax.ParallaxScrollView>
 
     <ScrollView
-        android:id="@+id/riskassesmentScrollViewEdit"
+        android:id="@+id/riskScrollViewEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"

@@ -20,7 +20,9 @@ import com.odoo.R;
 import com.odoo.addons.Risk.models.RiskAsessmentmodels;
 
 import com.odoo.addons.Risk.utils.ShareUtil;
+
 import com.odoo.base.addons.ir.feature.OFileManager;
+
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.orm.OModel;
 import com.odoo.core.orm.OValues;
@@ -58,7 +60,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private Menu mMenu;
     private OFileManager fileManager;
     private String newImage = null;
-    private RiskAsessment.Type partnerType = RiskAsessment.Type.Customer;
+    private RiskAsessment.Type partnerType = RiskAsessment.Type.Riskassesment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,13 +137,13 @@ public class RiskassesmentDetails extends OdooCompatActivity
         } else {
             int rowId = extras.getInt(OColumn.ROW_ID);
             record = resPartner.browse(rowId);
-           // record.put("full_address", resPartner.getAddress(record));
+
             checkControls();
             setMode(mEditMode);
             mForm.setEditable(mEditMode);
             mForm.initForm(record);
             mTitleView.setText(record.getString("name"));
-            setriskImage();
+            setCustomerImage();
             if (record.getInt("id") != 0 && record.getString("large_image").equals("false")) {
                 BigImageLoader bigImageLoader = new BigImageLoader();
                 bigImageLoader.execute(record.getInt("id"));
@@ -152,9 +154,11 @@ public class RiskassesmentDetails extends OdooCompatActivity
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.full_address:
-                IntentUtils.redirectToMap(this, record.getString("full_address"));
+            case R.id.subject:
+                IntentUtils.redirectToMap(this, record.getString("subject"));
                 break;
+/*
+
             case R.id.website:
                 IntentUtils.openURLInBrowser(this, record.getString("website"));
                 break;
@@ -170,18 +174,20 @@ public class RiskassesmentDetails extends OdooCompatActivity
             case R.id.captureImage:
                 fileManager.requestForFile(OFileManager.RequestType.IMAGE_OR_CAPTURE_IMAGE);
                 break;
+                */
         }
     }
 
     private void checkControls() {
-        findViewById(R.id.full_address).setOnClickListener(this);
-        findViewById(R.id.website).setOnClickListener(this);
-        findViewById(R.id.email).setOnClickListener(this);
-        findViewById(R.id.phone_number).setOnClickListener(this);
-        findViewById(R.id.mobile_number).setOnClickListener(this);
+        findViewById(R.id.subject).setOnClickListener(this);
+      //  findViewById(R.id.full_address).setOnClickListener(this);
+      //  findViewById(R.id.website).setOnClickListener(this);
+     //   findViewById(R.id.email).setOnClickListener(this);
+      //  findViewById(R.id.phone_number).setOnClickListener(this);
+       // findViewById(R.id.mobile_number).setOnClickListener(this);
     }
 
-    private void setriskImage() {
+    private void setCustomerImage() {
         if (!record.getString("image_small").equals("false")) {
             userImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
             userImage.setColorFilter(null);
@@ -224,11 +230,11 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 if (values != null) {
                     switch (partnerType) {
                         case Supplier:
-                            values.put("customer", "false");
-                            values.put("supplier", "true");
+
+                            values.put("Riskassesment", "true");
                             break;
                         default:
-                            values.put("customer", "true");
+                            values.put("Riskassesment", "true");
                             break;
                     }
                     if (newImage != null) {
@@ -258,13 +264,13 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 setMode(mEditMode);
                 mForm.setEditable(mEditMode);
                 mForm.initForm(record);
-                setriskImage();
+                setCustomerImage();
                 break;
             case R.id.menu_risk_share:
-                ShareUtil.shareContact(this, record, true);
+                com.odoo.addons.Risk.utils.ShareUtil.shareContact(this, record, true);
                 break;
             case R.id.menu_risk_import:
-                ShareUtil.shareContact(this, record, false);
+                com.odoo.addons.Risk.utils.ShareUtil.shareContact(this, record, false);
                 break;
             case R.id.menu_risk_delete:
                 OAlert.showConfirm(this, OResource.string(this,
@@ -353,7 +359,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                     values.put("large_image", result);
                     resPartner.update(record.getInt(OColumn.ROW_ID), values);
                     record.put("large_image", result);
-                    setriskImage();
+                    setCustomerImage();
                 }
             }
         }
