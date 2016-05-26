@@ -69,6 +69,7 @@
 
                     <odoo.controls.OField
                         android:id="@+id/subject"
+                        app:controlLabel="@string/subject"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
@@ -79,6 +80,7 @@
 
                     <odoo.controls.OField
                         android:id="@+id/partner_id"
+                        app:controlLabel="@string/partner_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
@@ -92,6 +94,7 @@
 
                     <odoo.controls.OField
                         android:id="@+id/assesment_method"
+                        app:controlLabel="@string/assesment_method"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
@@ -112,8 +115,9 @@
                         style="@style/ViewSeparator"
                         android:layout_marginLeft="72dp" />
 
-                    <odoo.controls.OField
+                        <odoo.controls.OField
                         android:id="@+id/date_performed"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:controlLabel="@string/date_performed"
@@ -124,6 +128,7 @@
 
                     <odoo.controls.OField
                         android:id="@+id/date_valid_before"
+                        app:controlLabel="@string/date_valid_before"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
@@ -134,7 +139,7 @@
                         android:id="@+id/date_updated"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:controlLabel="@string/label_address"
+                        app:controlLabel="@string/date_updated"
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="date_updated"
                         app:fieldTextAppearance="?android:textAppearanceMedium"

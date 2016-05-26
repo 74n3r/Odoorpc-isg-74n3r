@@ -17,7 +17,6 @@ public class RiskAsessmentmodel extends OModel {
     public static final String AUTHORITY = "com.odoo.addons.Risk.isg_risk_assesment";
     OColumn name = new OColumn("name", OVarchar.class).setName("name");
     OColumn partner_id = new OColumn("partner_id", ResPartner.class, OColumn.RelationType.ManyToOne);
-
     OColumn assesment_method = new OColumn("assesment_method ", RiskAsessmentmodel.class, OColumn.RelationType.ManyToOne);
    // OColumn procedure_id = new OColumn("procedure_id", RiskAsessmentmodel.class, OColumn.RelationType.ManyToOne);
     OColumn subject = new OColumn("subject", OVarchar.class).setName("subject");
