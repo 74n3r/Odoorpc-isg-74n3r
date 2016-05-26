@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Odoo</string>
+    <string name="date_performed">Güncelleme Tarihi</string>
+    <string name="assesment_method">Yöntem</string>
+    <string name="partner_id">Firma</string>
+    <string name="subject">Konusu</string>
+
+    <string name="date_valid_before">Geçerlilik Tarihi</string>
+    <string name="date_updated">Güncelleme Tarihi</string>
     <string name="sync_label_customers">Customers</string>
     <string name="sync_label_Risk">Risk</string>
     <string name="sync_label_Riskassesment">Risk Senkronizasyon</string>

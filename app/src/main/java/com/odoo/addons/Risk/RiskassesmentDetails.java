@@ -58,7 +58,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private Menu mMenu;
     private OFileManager fileManager;
     private String newImage = null;
-    private RiskAsessment.Type partnerType = RiskAsessment.Type.Riskassesment;
+    private RiskAsessments.Type partnerType = RiskAsessments.Type.Riskassesment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
         resPartner = new RiskAsessmentmodel(this, null);
         extras = getIntent().getExtras();
         if (extras != null)
-            partnerType = RiskAsessment.Type.valueOf(extras.getString(KEY_PARTNER_TYPE));
+            partnerType = RiskAsessments.Type.valueOf(extras.getString(KEY_PARTNER_TYPE));
         if (!hasRecordInExtra())
             mEditMode = true;
         setupActionBar();

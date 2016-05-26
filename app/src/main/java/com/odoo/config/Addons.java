@@ -20,7 +20,7 @@
 package com.odoo.config;
 
 
-import com.odoo.addons.Risk.RiskAsessment;
+import com.odoo.addons.Risk.RiskAsessments;
 import com.odoo.addons.customers.Customers;
 import com.odoo.core.support.addons.AddonsHelper;
 import com.odoo.core.support.addons.OAddon;
@@ -34,5 +34,5 @@ public class Addons extends AddonsHelper {
      * OAddon partners = new OAddon(Partners.class).setDefault();
      */
     OAddon customers = new OAddon(Customers.class).setDefault();
-    OAddon risk = new OAddon(RiskAsessment.class);
+    OAddon risk = new OAddon(RiskAsessments.class);
 }

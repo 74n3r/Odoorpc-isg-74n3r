@@ -55,12 +55,12 @@ import com.odoo.core.utils.OCursorUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RiskAsessment extends BaseFragment implements ISyncStatusObserverListener,
+public class RiskAsessments extends BaseFragment implements ISyncStatusObserverListener,
         LoaderManager.LoaderCallbacks<Cursor>, SwipeRefreshLayout.OnRefreshListener,
         OCursorListAdapter.OnViewBindListener, IOnSearchViewChangeListener, View.OnClickListener,
         AdapterView.OnItemClickListener {
 
-    public static final String KEY = RiskAsessment.class.getSimpleName();
+    public static final String KEY = RiskAsessments.class.getSimpleName();
     public static final String EXTRA_KEY_TYPE = "extra_key_type";
     private View mView;
     private String mCurFilter = null;
@@ -116,7 +116,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        Log.e("RiskAsessment", "onLoadFinished(): cusrsor size is: "
+        Log.e("RiskAsessments", "onLoadFinished(): cusrsor size is: "
                 + (data != null ? data.getCount() + "" : "0"));
         mAdapter.changeCursor(data);
         if (data.getCount() > 0) {
@@ -126,7 +126,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
                     OControls.setGone(mView, R.id.loadingProgress);
                     OControls.setVisible(mView, R.id.swipe_container);
                     OControls.setGone(mView, R.id.customer_no_items);
-                    setHasSwipeRefreshView(mView, R.id.swipe_container, RiskAsessment.this);
+                    setHasSwipeRefreshView(mView, R.id.swipe_container, RiskAsessments.this);
                 }
             }, 500);
         } else {
@@ -136,7 +136,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
                     OControls.setGone(mView, R.id.loadingProgress);
                     OControls.setGone(mView, R.id.swipe_container);
                     OControls.setVisible(mView, R.id.customer_no_items);
-                    setHasSwipeRefreshView(mView, R.id.customer_no_items, RiskAsessment.this);
+                    setHasSwipeRefreshView(mView, R.id.customer_no_items, RiskAsessments.this);
                     OControls.setImage(mView, R.id.icon, R.drawable.ic_action_customers);
                     OControls.setText(mView, R.id.title, _s(R.string.label_no_customer_found));
                     OControls.setText(mView, R.id.subTitle, "Risk Değerlendirme Formu");
@@ -165,7 +165,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
         items.add(new ODrawerItem(KEY).setTitle("Risk Değerlendirme")
                 .setIcon(R.drawable.ic_action_customers)
                 .setExtra(extra(Type.Riskassesment))
-                .setInstance(new RiskAsessment()));
+                .setInstance(new RiskAsessments()));
 
         return items;
     }

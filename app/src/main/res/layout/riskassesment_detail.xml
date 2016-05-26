@@ -99,14 +99,14 @@
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         app:iconResource="@drawable/ic_action_phone"></odoo.controls.OField>
 
-                    <odoo.controls.OField
+                   <!-- <odoo.controls.OField
                         android:id="@+id/procedure_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="procedure_id"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>
+                        app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>-->
 
                     <View
                         style="@style/ViewSeparator"
@@ -116,7 +116,7 @@
                         android:id="@+id/date_performed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:controlLabel="@string/label_address"
+                        app:controlLabel="@string/date_performed"
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="date_performed"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
