@@ -65,7 +65,9 @@
                         android:layout_height="wrap_content"
                         app:fieldName="is_company"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:showLabel="false"></odoo.controls.OField>
+                        app:showLabel="false">
+
+                    </odoo.controls.OField>
 
                     <odoo.controls.OField
                         android:id="@+id/subject"
@@ -75,7 +77,9 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="subject"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_universe"></odoo.controls.OField>
+                         >
+
+                    </odoo.controls.OField>
 
 
                     <odoo.controls.OField
@@ -86,7 +90,9 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="partner_id"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_message"></odoo.controls.OField>
+                         >
+
+                    </odoo.controls.OField>
 
                     <View
                         style="@style/ViewSeparator"
@@ -100,16 +106,18 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="assesment_method"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_phone"></odoo.controls.OField>
+                        app:iconResource="@drawable/ic_action_phone">
+                    <!--  app:iconResource="@drawable/ic_action_phone"-->
+                 </odoo.controls.OField>
 
-                   <!-- <odoo.controls.OField
-                        android:id="@+id/procedure_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="procedure_id"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>-->
+                <!-- <odoo.controls.OField
+                     android:id="@+id/procedure_id"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     app:fieldLabelColor="@color/theme_secondary"
+                     app:fieldName="procedure_id"
+                     app:fieldTextAppearance="?android:textAppearanceMedium"
+                     app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>-->
 
                     <View
                         style="@style/ViewSeparator"
@@ -124,7 +132,9 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="date_performed"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_location"></odoo.controls.OField>
+                        >
+
+                        </odoo.controls.OField>
 
                     <odoo.controls.OField
                         android:id="@+id/date_valid_before"
@@ -133,7 +143,9 @@
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="date_valid_before"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"></odoo.controls.OField>
+                        app:fieldTextAppearance="?android:textAppearanceMedium">
+
+                    </odoo.controls.OField>
 
                     <odoo.controls.OField
                         android:id="@+id/date_updated"
@@ -143,7 +155,9 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="date_updated"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_location"></odoo.controls.OField>
+                         >
+
+                    </odoo.controls.OField>
 
 
 
@@ -151,13 +165,7 @@
                         style="@style/ViewSeparator"
                         android:layout_marginLeft="72dp" />
 
-                    <odoo.controls.OField
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="comment"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:iconResource="@drawable/ic_action_notes_content"></odoo.controls.OField>
+
                 </odoo.controls.OForm>
             </LinearLayout>
         </RelativeLayout>

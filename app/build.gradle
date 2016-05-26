@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
     defaultConfig {
         //FIXME: Change application name as your requirement
-        manifestPlaceholders = [applicationName: "Example"]
+        manifestPlaceholders = [applicationName: "DÖNÜŞÜM İSG"]
         //FIXME: Please change the application id as your requirement
         applicationId "com.example"
         minSdkVersion 14
