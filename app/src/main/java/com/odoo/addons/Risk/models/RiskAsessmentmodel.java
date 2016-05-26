@@ -48,5 +48,4 @@ public class RiskAsessmentmodel extends OModel {
         Log.i(TAG, "onSyncFinished");
     }
 
-
 }
