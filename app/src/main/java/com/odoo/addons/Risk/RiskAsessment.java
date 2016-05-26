@@ -40,8 +40,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.odoo.R;
-import com.odoo.addons.Risk.models.RiskAsessmentmodels;
-import com.odoo.addons.customers.CustomerDetails;
+import com.odoo.addons.Risk.models.RiskAsessmentmodel;
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.addons.fragment.IOnSearchViewChangeListener;
@@ -156,8 +155,8 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
     }
 
     @Override
-    public Class<RiskAsessmentmodels> database() {
-        return RiskAsessmentmodels.class;
+    public Class<RiskAsessmentmodel> database() {
+        return RiskAsessmentmodel.class;
     }
 
     @Override
@@ -186,7 +185,7 @@ public class RiskAsessment extends BaseFragment implements ISyncStatusObserverLi
     @Override
     public void onRefresh() {
         if (inNetwork()) {
-            parent().sync().requestSync(RiskAsessmentmodels.AUTHORITY);
+            parent().sync().requestSync(RiskAsessmentmodel.AUTHORITY);
             setSwipeRefreshing(true);
         } else {
             hideRefreshingProgress();

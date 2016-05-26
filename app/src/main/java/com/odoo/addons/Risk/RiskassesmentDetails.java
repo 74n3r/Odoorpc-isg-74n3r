@@ -17,9 +17,7 @@ import android.widget.Toast;
 
 import com.odoo.App;
 import com.odoo.R;
-import com.odoo.addons.Risk.models.RiskAsessmentmodels;
-
-import com.odoo.addons.Risk.utils.ShareUtil;
+import com.odoo.addons.Risk.models.RiskAsessmentmodel;
 
 import com.odoo.base.addons.ir.feature.OFileManager;
 
@@ -49,7 +47,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private final String KEY_NEW_IMAGE = "key_new_image";
     private ActionBar actionBar;
     private Bundle extras;
-    private RiskAsessmentmodels resPartner;
+    private RiskAsessmentmodel resPartner;
     private ODataRow record = null;
     private ParallaxScrollView parallaxScrollView;
     private ImageView userImage = null, captureImage = null;
@@ -80,7 +78,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
         parallaxScrollView.setActionBar(actionBar);
         userImage = (ImageView) findViewById(android.R.id.icon);
         mTitleView = (TextView) findViewById(android.R.id.title);
-        resPartner = new RiskAsessmentmodels(this, null);
+        resPartner = new RiskAsessmentmodel(this, null);
         extras = getIntent().getExtras();
         if (extras != null)
             partnerType = RiskAsessment.Type.valueOf(extras.getString(KEY_PARTNER_TYPE));
@@ -156,8 +154,8 @@ public class RiskassesmentDetails extends OdooCompatActivity
         switch (v.getId()) {
             case R.id.subject:
                 IntentUtils.redirectToMap(this, record.getString("subject"));
-                break;
-/*
+           /*     break;
+
 
             case R.id.website:
                 IntentUtils.openURLInBrowser(this, record.getString("website"));

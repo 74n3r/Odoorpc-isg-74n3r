@@ -19,7 +19,7 @@
  */
 package com.odoo.addons.Risk.providers;
 
-import com.odoo.addons.Risk.models.RiskAsessmentmodels;
+import com.odoo.addons.Risk.models.RiskAsessmentmodel;
 import com.odoo.core.orm.provider.BaseModelProvider;
 
 public class RiskAsessmentSyncProvider extends BaseModelProvider {
@@ -28,6 +28,6 @@ public class RiskAsessmentSyncProvider extends BaseModelProvider {
 
     @Override
     public String authority() {
-        return RiskAsessmentmodels.AUTHORITY;
+        return RiskAsessmentmodel.AUTHORITY;
     }
 }

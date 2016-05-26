@@ -22,7 +22,7 @@ package com.odoo.addons.Risk.services;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.odoo.addons.Risk.models.RiskAsessmentmodels;
+import com.odoo.addons.Risk.models.RiskAsessmentmodel;
 import com.odoo.core.service.OSyncAdapter;
 import com.odoo.core.service.OSyncService;
 import com.odoo.core.support.OUser;
@@ -34,7 +34,7 @@ public class RiskAsessmentSyncService extends OSyncService {
     public OSyncAdapter getSyncAdapter(OSyncService service, Context context) {
         //return new OSyncAdapter(context, ResPartner.class, service, true);
         //burayi degistirdim
-        return new OSyncAdapter(getApplicationContext(), RiskAsessmentmodels.class, this, true);
+        return new OSyncAdapter(getApplicationContext(), RiskAsessmentmodel.class, this, true);
   }
 
     @Override
