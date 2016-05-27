@@ -24,12 +24,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="-56dp">
 
-                <ImageView
-                    android:id="@android:id/icon"
-                    android:layout_width="match_parent"
-                    android:layout_height="380dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/user_xlarge" />
             </FrameLayout>
 
             <TextView
@@ -70,19 +64,6 @@
                     </odoo.controls.OField>
 
                     <odoo.controls.OField
-                        android:id="@+id/subject"
-                        app:controlLabel="@string/subject"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="subject"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"
-                         >
-
-                    </odoo.controls.OField>
-
-
-                    <odoo.controls.OField
                         android:id="@+id/partner_id"
                         app:controlLabel="@string/partner_id"
                         android:layout_width="match_parent"
@@ -90,13 +71,10 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="partner_id"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                         >
+                        >
 
                     </odoo.controls.OField>
 
-                    <View
-                        style="@style/ViewSeparator"
-                        android:layout_marginLeft="72dp" />
 
                     <odoo.controls.OField
                         android:id="@+id/assesment_method"
@@ -107,36 +85,34 @@
                         app:fieldName="assesment_method"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         >
-                    <!--  app:iconResource="@drawable/ic_action_phone"-->
-                 </odoo.controls.OField>
-
-                    <odoo.controls.OField
-                        android:id="@+id/assesment_procedure"
-                        app:controlLabel="@string/assesment_procedure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="assesment_method"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"
-                        >
                         <!--  app:iconResource="@drawable/ic_action_phone"-->
                     </odoo.controls.OField>
 
-                <!-- <odoo.controls.OField
-                     android:id="@+id/procedure_id"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     app:fieldLabelColor="@color/theme_secondary"
-                     app:fieldName="procedure_id"
-                     app:fieldTextAppearance="?android:textAppearanceMedium"
-                     app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>-->
+                    <!-- <odoo.controls.OField
+                         android:id="@+id/procedure_id"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         app:fieldLabelColor="@color/theme_secondary"
+                         app:fieldName="procedure_id"
+                         app:fieldTextAppearance="?android:textAppearanceMedium"
+                         app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>-->
 
 
                     <!--<View
                         style="@style/ViewSeparator"
                         android:layout_marginLeft="72dp" />-->
+                    <odoo.controls.OField
+                        android:id="@+id/subject"
+                        app:controlLabel="@string/subject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldName="subject"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        >
 
-                        <odoo.controls.OField
+                    </odoo.controls.OField>
+                    <odoo.controls.OField
                         android:id="@+id/date_performed"
 
                         android:layout_width="match_parent"
@@ -147,7 +123,7 @@
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         >
 
-                        </odoo.controls.OField>
+                    </odoo.controls.OField>
 
                     <odoo.controls.OField
                         android:id="@+id/date_valid_before"
@@ -168,16 +144,9 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldName="date_updated"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                         >
+                        >
 
                     </odoo.controls.OField>
-
-
-
-                    <View
-                        style="@style/ViewSeparator"
-                        android:layout_marginLeft="72dp" />
-
 
                 </odoo.controls.OForm>
             </LinearLayout>
@@ -369,7 +338,7 @@
                         android:layout_height="wrap_content"
                         app:fieldName="mobile"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                      >
+                        >
                     </odoo.controls.OField>
 
                     <View

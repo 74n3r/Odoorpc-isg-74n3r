@@ -3,7 +3,6 @@ package com.odoo.addons.Risk;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -24,7 +23,6 @@ import com.odoo.core.orm.OModel;
 import com.odoo.core.orm.OValues;
 import com.odoo.core.orm.fields.OColumn;
 import com.odoo.core.support.OdooCompatActivity;
-import com.odoo.core.utils.BitmapUtils;
 import com.odoo.core.utils.IntentUtils;
 import com.odoo.core.utils.OAlert;
 import com.odoo.core.utils.OAppBarUtils;
@@ -69,12 +67,12 @@ public class RiskassesmentDetails extends OdooCompatActivity
             actionBar.setTitle("");
         if (savedInstanceState != null) {
             mEditMode = savedInstanceState.getBoolean(KEY_MODE);
-            newImage = savedInstanceState.getString(KEY_NEW_IMAGE);
+           // newImage = savedInstanceState.getString(KEY_NEW_IMAGE);
         }
         app = (App) getApplicationContext();
         parallaxScrollView = (ParallaxScrollView) findViewById(R.id.parallaxScrollView);
         parallaxScrollView.setActionBar(actionBar);
-        userImage = (ImageView) findViewById(android.R.id.icon);
+       // userImage = (ImageView) findViewById(android.R.id.icon);
         mTitleView = (TextView) findViewById(android.R.id.title);
         RiskAsessmentmodel = new RiskAsessmentmodel(this, null);
         extras = getIntent().getExtras();
@@ -107,16 +105,16 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 actionBar.setTitle(R.string.label_new);
             actionBar.setBackgroundDrawable(new ColorDrawable(color));
             mForm = (OForm) findViewById(R.id.riskFormEdit);
-            captureImage = (ImageView) findViewById(R.id.captureImage);
-            captureImage.setOnClickListener(this);
-            userImage = (ImageView) findViewById(android.R.id.icon1);
+          //  captureImage = (ImageView) findViewById(R.id.captureImage);
+           // captureImage.setOnClickListener(this);
+          //  userImage = (ImageView) findViewById(android.R.id.icon1);
             findViewById(R.id.parallaxScrollView).setVisibility(View.GONE);
             findViewById(R.id.riskScrollViewEdit).setVisibility(View.VISIBLE);
             OField is_company = (OField) findViewById(R.id.is_company_edit);
             is_company.setOnValueChangeListener(this);
         } else {
             actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_shade));
-            userImage = (ImageView) findViewById(android.R.id.icon);
+          //  userImage = (ImageView) findViewById(android.R.id.icon);
             mForm = (OForm) findViewById(R.id.riskForm);
             findViewById(R.id.riskScrollViewEdit).setVisibility(View.GONE);
             findViewById(R.id.parallaxScrollView).setVisibility(View.VISIBLE);
@@ -127,7 +125,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private void setupActionBar() {
         if (!hasRecordInExtra()) {
             setMode(mEditMode);
-            userImage.setColorFilter(Color.parseColor("#ffffff"));
+        //    userImage.setColorFilter(Color.parseColor("#ffffff"));
             mForm.setEditable(mEditMode);
             mForm.initForm(null);
         } else {
@@ -139,11 +137,11 @@ public class RiskassesmentDetails extends OdooCompatActivity
             mForm.setEditable(mEditMode);
             mForm.initForm(record);
             mTitleView.setText(record.getString("name"));
-            setCustomerImage();
-            if (record.getInt("id") != 0 && record.getString("large_image").equals("false")) {
-                BigImageLoader bigImageLoader = new BigImageLoader();
-                bigImageLoader.execute(record.getInt("id"));
-            }
+          //  setCustomerImage();
+         //   if (record.getInt("id") != 0 && record.getString("large_image").equals("false")) {
+           //     BigImageLoader bigImageLoader = new BigImageLoader();
+             //   bigImageLoader.execute(record.getInt("id"));
+         //   }
         }
     }
 
@@ -183,7 +181,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
        // findViewById(R.id.mobile_number).setOnClickListener(this);
     }
 
-    private void setCustomerImage() {
+  /*  private void setCustomerImage() {
         if (!record.getString("image_small").equals("false")) {
             userImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
             userImage.setColorFilter(null);
@@ -199,7 +197,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
         } else {
             userImage.setColorFilter(Color.parseColor("#ffffff"));
         }
-    }
+    }*/
 
     private void setColor(int color) {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.parallax_view);
@@ -210,12 +208,13 @@ public class RiskassesmentDetails extends OdooCompatActivity
         findViewById(R.id.parallax_view).setBackgroundColor(color);
         findViewById(R.id.parallax_view_edit).setBackgroundColor(color);
         findViewById(R.id.riskScrollViewEdit).setBackgroundColor(color);
-        if (captureImage != null) {
+
+       /* if (captureImage != null) {
             GradientDrawable shapeDrawable =
                     (GradientDrawable) getResources().getDrawable(R.drawable.circle_mask_primary);
             shapeDrawable.setColor(color);
             captureImage.setBackgroundDrawable(shapeDrawable);
-        }
+        }*/
     }
 
     @Override
@@ -233,10 +232,10 @@ public class RiskassesmentDetails extends OdooCompatActivity
                             values.put("Riskassesment", "true");
                             break;
                     }
-                    if (newImage != null) {
+                    /*if (newImage != null) {
                         values.put("image_small", newImage);
                         values.put("large_image", newImage);
-                    }
+                    }*/
                     if (record != null) {
                         RiskAsessmentmodel.update(record.getInt(OColumn.ROW_ID), values);
                         Toast.makeText(this, R.string.toast_information_saved, Toast.LENGTH_LONG).show();
@@ -260,7 +259,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 setMode(mEditMode);
                 mForm.setEditable(mEditMode);
                 mForm.initForm(record);
-                setCustomerImage();
+              //  setCustomerImage();
                 break;
             case R.id.menu_risk_share:
                 com.odoo.addons.Risk.utils.ShareUtil.shareContact(this, record, true);
@@ -310,7 +309,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(KEY_MODE, mEditMode);
-        outState.putString(KEY_NEW_IMAGE, newImage);
+        //outState.putString(KEY_NEW_IMAGE, newImage);
     }
 
     @Override
@@ -318,10 +317,10 @@ public class RiskassesmentDetails extends OdooCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
         OValues values = fileManager.handleResult(requestCode, resultCode, data);
         if (values != null && !values.contains("size_limit_exceed")) {
-            newImage = values.getString("datas");
-            userImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            userImage.setColorFilter(null);
-            userImage.setImageBitmap(BitmapUtils.getBitmapImage(this, newImage));
+         //   newImage = values.getString("datas");
+         //   userImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+       //     userImage.setColorFilter(null);
+           // userImage.setImageBitmap(BitmapUtils.getBitmapImage(this, newImage));
         } else if (values != null) {
             Toast.makeText(this, R.string.toast_image_size_too_large, Toast.LENGTH_LONG).show();
         }
@@ -355,7 +354,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                     values.put("large_image", result);
                     RiskAsessmentmodel.update(record.getInt(OColumn.ROW_ID), values);
                     record.put("large_image", result);
-                    setCustomerImage();
+                    //setCustomerImage();
                 }
             }
         }
