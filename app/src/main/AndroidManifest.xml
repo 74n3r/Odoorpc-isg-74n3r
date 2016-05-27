@@ -132,6 +132,28 @@
             android:name="com.odoo.addons.customers.CustomerDetails"
             android:windowSoftInputMode="adjustPan" />
 
+        <!-- benim Risk Assesment method Procedure Sync Provider & Servicelerim  // -->
+        <provider
+            android:name="com.odoo.addons.Risk.providers.RiskAsessment_method_SyncProvider"
+            android:authorities="@string/sync_label_Riskassesment_method_authority"
+            android:label="@string/sync_label_Riskassesment_method"
+            android:multiprocess="true" />
+
+        <service
+            android:name="com.odoo.addons.Risk.services.RiskAsessment_method_SyncService"
+            android:exported="true"
+            android:process=":sync_risk">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/riskassesment_method_sync_adapter" />
+        </service>
+
+
+
 
         <!-- benim Sync Provider & Servicelerim  // -->
         <provider

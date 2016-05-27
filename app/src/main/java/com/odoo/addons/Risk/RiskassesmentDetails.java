@@ -18,9 +18,7 @@ import android.widget.Toast;
 import com.odoo.App;
 import com.odoo.R;
 import com.odoo.addons.Risk.models.RiskAsessmentmodel;
-
 import com.odoo.base.addons.ir.feature.OFileManager;
-
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.orm.OModel;
 import com.odoo.core.orm.OValues;
@@ -47,7 +45,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private final String KEY_NEW_IMAGE = "key_new_image";
     private ActionBar actionBar;
     private Bundle extras;
-    private RiskAsessmentmodel resPartner;
+    private RiskAsessmentmodel RiskAsessmentmodel;
     private ODataRow record = null;
     private ParallaxScrollView parallaxScrollView;
     private ImageView userImage = null, captureImage = null;
@@ -78,7 +76,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
         parallaxScrollView.setActionBar(actionBar);
         userImage = (ImageView) findViewById(android.R.id.icon);
         mTitleView = (TextView) findViewById(android.R.id.title);
-        resPartner = new RiskAsessmentmodel(this, null);
+        RiskAsessmentmodel = new RiskAsessmentmodel(this, null);
         extras = getIntent().getExtras();
         if (extras != null)
             partnerType = RiskAsessments.Type.valueOf(extras.getString(KEY_PARTNER_TYPE));
@@ -134,7 +132,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
             mForm.initForm(null);
         } else {
             int rowId = extras.getInt(OColumn.ROW_ID);
-            record = resPartner.browse(rowId);
+            record = RiskAsessmentmodel.browse(rowId);
 
             checkControls();
             setMode(mEditMode);
@@ -240,12 +238,12 @@ public class RiskassesmentDetails extends OdooCompatActivity
                         values.put("large_image", newImage);
                     }
                     if (record != null) {
-                        resPartner.update(record.getInt(OColumn.ROW_ID), values);
+                        RiskAsessmentmodel.update(record.getInt(OColumn.ROW_ID), values);
                         Toast.makeText(this, R.string.toast_information_saved, Toast.LENGTH_LONG).show();
                         mEditMode = !mEditMode;
                         setupActionBar();
                     } else {
-                        final int row_id = resPartner.insert(values);
+                        final int row_id = RiskAsessmentmodel.insert(values);
                         if (row_id != OModel.INVALID_ROW_ID) {
                             finish();
                         }
@@ -278,7 +276,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                             public void onConfirmChoiceSelect(OAlert.ConfirmType type) {
                                 if (type == OAlert.ConfirmType.POSITIVE) {
                                     // Deleting record and finishing activity if success.
-                                    if (resPartner.delete(record.getInt(OColumn.ROW_ID))) {
+                                    if (RiskAsessmentmodel.delete(record.getInt(OColumn.ROW_ID))) {
                                         Toast.makeText(RiskassesmentDetails.this, R.string.toast_record_deleted,
                                                 Toast.LENGTH_SHORT).show();
                                         finish();
@@ -338,7 +336,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 Thread.sleep(300);
                 OdooFields fields = new OdooFields();
                 fields.addAll(new String[]{"image_medium"});
-                OdooResult record = resPartner.getServerDataHelper().read(null, params[0]);
+                OdooResult record = RiskAsessmentmodel.getServerDataHelper().read(null, params[0]);
                 if (record != null && !record.getString("image_medium").equals("false")) {
                     image = record.getString("image_medium");
                 }
@@ -355,7 +353,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 if (!result.equals("false")) {
                     OValues values = new OValues();
                     values.put("large_image", result);
-                    resPartner.update(record.getInt(OColumn.ROW_ID), values);
+                    RiskAsessmentmodel.update(record.getInt(OColumn.ROW_ID), values);
                     record.put("large_image", result);
                     setCustomerImage();
                 }
