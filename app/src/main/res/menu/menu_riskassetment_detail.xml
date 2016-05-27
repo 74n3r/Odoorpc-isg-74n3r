@@ -21,6 +21,9 @@
         app:showAsAction="always">
         <menu>
             <item
+                android:id="@+id/Risks"
+                android:title="@string/label_Risk" />
+            <item
                 android:id="@+id/menu_risk_share"
                 android:title="@string/label_share" />
             <item

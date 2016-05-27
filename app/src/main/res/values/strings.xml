@@ -8,7 +8,7 @@
     <string name="assesment_procedure">Prosedür</string>
     <string name="date_valid_before">Geçerlilik Tarihi</string>
     <string name="date_updated">Güncelleme Tarihi</string>
-    <string name="sync_label_customers">Customers</string>
+    <string name="sync_label_customers">Müşteriler</string>
     <string name="sync_label_Risk">Risk</string>
     <string name="sync_label_Riskassesment">Risk Senkronizasyon</string>
     <string name="sync_label_Riskassesment_method">Risk Method Senkronizasyon</string>
@@ -16,9 +16,9 @@
     <string name="sync_label_Riskassesment_authority">com.odoo.addons.Risk.isg_risk_assesment</string>
     <string name="sync_label_Riskassesment_method_authority">com.odoo.addons.Risk.isg_risk_assesment_method</string>
     <string name="sync_label_Riskassesment_procedure_authority">com.odoo.addons.Risk.isg_risk_assesment_procedure</string>
-    <string name="toast_information_saved">Information Saved</string>
-    <string name="toast_image_size_too_large">Image size too large !</string>
-    <string name="label_no_customer_found">No Customer Found !</string>
+    <string name="toast_information_saved">Bilgiler Kayıt Edildi</string>
+    <string name="toast_image_size_too_large">Resim Çok Büyük !</string>
+    <string name="label_no_customer_found">Müşteri Bulunamadı</string>
     <string name="message_to">Message to %s</string>
     <string name="add_internal_note">Add and internal note</string>
     <string name="internal_note_hint">Add an internal note that will not be sent to the followers</string>
@@ -30,5 +30,5 @@
     <string name="toast_permission_download_storage_help">Storage permission required to store downloaded files on sdcard of your phone. Please grant permission for use this feature</string>
     <string name="alert_permission_help">Some of permission required to start application. Please grant permission from application settings.</string>
     <string name="confirm_are_you_sure_want_to_delete">Are you sure want to delete ?</string>
-    <string name="toast_record_deleted">Record deleted</string>
+    <string name="toast_record_deleted">Kayıt Silindi</string>
 </resources>

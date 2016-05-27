@@ -125,7 +125,6 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private void setupActionBar() {
         if (!hasRecordInExtra()) {
             setMode(mEditMode);
-        //    userImage.setColorFilter(Color.parseColor("#ffffff"));
             mForm.setEditable(mEditMode);
             mForm.initForm(null);
         } else {
@@ -137,11 +136,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
             mForm.setEditable(mEditMode);
             mForm.initForm(record);
             mTitleView.setText(record.getString("name"));
-          //  setCustomerImage();
-         //   if (record.getInt("id") != 0 && record.getString("large_image").equals("false")) {
-           //     BigImageLoader bigImageLoader = new BigImageLoader();
-             //   bigImageLoader.execute(record.getInt("id"));
-         //   }
+
         }
     }
 
@@ -181,23 +176,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
        // findViewById(R.id.mobile_number).setOnClickListener(this);
     }
 
-  /*  private void setCustomerImage() {
-        if (!record.getString("image_small").equals("false")) {
-            userImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            userImage.setColorFilter(null);
-            String base64 = newImage;
-            if (newImage == null) {
-                if (!record.getString("large_image").equals("false")) {
-                    base64 = record.getString("large_image");
-                } else {
-                    base64 = record.getString("image_small");
-                }
-            }
-            userImage.setImageBitmap(BitmapUtils.getBitmapImage(this, base64));
-        } else {
-            userImage.setColorFilter(Color.parseColor("#ffffff"));
-        }
-    }*/
+
 
     private void setColor(int color) {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.parallax_view);
@@ -209,12 +188,6 @@ public class RiskassesmentDetails extends OdooCompatActivity
         findViewById(R.id.parallax_view_edit).setBackgroundColor(color);
         findViewById(R.id.riskScrollViewEdit).setBackgroundColor(color);
 
-       /* if (captureImage != null) {
-            GradientDrawable shapeDrawable =
-                    (GradientDrawable) getResources().getDrawable(R.drawable.circle_mask_primary);
-            shapeDrawable.setColor(color);
-            captureImage.setBackgroundDrawable(shapeDrawable);
-        }*/
     }
 
     @Override
@@ -232,10 +205,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                             values.put("Riskassesment", "true");
                             break;
                     }
-                    /*if (newImage != null) {
-                        values.put("image_small", newImage);
-                        values.put("large_image", newImage);
-                    }*/
+
                     if (record != null) {
                         RiskAsessmentmodel.update(record.getInt(OColumn.ROW_ID), values);
                         Toast.makeText(this, R.string.toast_information_saved, Toast.LENGTH_LONG).show();
@@ -259,14 +229,13 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 setMode(mEditMode);
                 mForm.setEditable(mEditMode);
                 mForm.initForm(record);
-              //  setCustomerImage();
+
                 break;
-            case R.id.menu_risk_share:
-                com.odoo.addons.Risk.utils.ShareUtil.shareContact(this, record, true);
+            case R.id.Risks:
+                Toast.makeText(RiskassesmentDetails.this, "Risklere Gidiyorsun", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.menu_risk_import:
-                com.odoo.addons.Risk.utils.ShareUtil.shareContact(this, record, false);
-                break;
+
+
             case R.id.menu_risk_delete:
                 OAlert.showConfirm(this, OResource.string(this,
                         R.string.confirm_are_you_sure_want_to_delete),
@@ -309,7 +278,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(KEY_MODE, mEditMode);
-        //outState.putString(KEY_NEW_IMAGE, newImage);
+
     }
 
     @Override
@@ -317,10 +286,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
         OValues values = fileManager.handleResult(requestCode, resultCode, data);
         if (values != null && !values.contains("size_limit_exceed")) {
-         //   newImage = values.getString("datas");
-         //   userImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-       //     userImage.setColorFilter(null);
-           // userImage.setImageBitmap(BitmapUtils.getBitmapImage(this, newImage));
+
         } else if (values != null) {
             Toast.makeText(this, R.string.toast_image_size_too_large, Toast.LENGTH_LONG).show();
         }
@@ -354,7 +320,7 @@ public class RiskassesmentDetails extends OdooCompatActivity
                     values.put("large_image", result);
                     RiskAsessmentmodel.update(record.getInt(OColumn.ROW_ID), values);
                     record.put("large_image", result);
-                    //setCustomerImage();
+
                 }
             }
         }

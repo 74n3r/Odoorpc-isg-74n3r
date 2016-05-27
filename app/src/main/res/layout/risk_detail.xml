@@ -24,6 +24,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="-56dp">
 
+                <ImageView
+                    android:id="@android:id/icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/user_xlarge" />
             </FrameLayout>
 
             <TextView
@@ -47,11 +53,11 @@
                 android:paddingTop="@dimen/default_16dp">
 
                 <odoo.controls.OForm
-                    android:id="@+id/riskForm"
+                    android:id="@+id/customerForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:modelName="isg.risk_assesment">
+                    app:modelName="res.partner">
 
                     <odoo.controls.OField
                         android:id="@+id/is_company"
@@ -64,100 +70,88 @@
                     </odoo.controls.OField>
 
                     <odoo.controls.OField
-                        android:id="@+id/subject"
-                        app:controlLabel="@string/subject"
+                        android:id="@+id/website"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="subject"
+                        app:fieldName="website"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        >
+                        app:iconResource="@drawable/ic_action_universe">
 
                     </odoo.controls.OField>
 
 
                     <odoo.controls.OField
-                        android:id="@+id/partner_id"
-                        app:controlLabel="@string/partner_id"
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="partner_id"
+                        app:fieldName="email"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        >
+                        app:iconResource="@drawable/ic_action_message"></odoo.controls.OField>
 
-                    </odoo.controls.OField>
-
-                    <odoo.controls.OField
-                        android:id="@+id/assesment_method"
-                        app:controlLabel="@string/assesment_method"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="assesment_method"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"
-                        >
-                        <!--  app:iconResource="@drawable/ic_action_phone"-->
-                    </odoo.controls.OField>
-
-                    <!-- <odoo.controls.OField
-                         android:id="@+id/procedure_id"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         app:fieldLabelColor="@color/theme_secondary"
-                         app:fieldName="procedure_id"
-                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                         app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>-->
-
-
-                    <!--<View
+                    <View
                         style="@style/ViewSeparator"
-                        android:layout_marginLeft="72dp" />-->
+                        android:layout_marginLeft="72dp" />
 
                     <odoo.controls.OField
-                        android:id="@+id/date_performed"
-
+                        android:id="@+id/phone_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:controlLabel="@string/date_performed"
                         app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="date_performed"
+                        app:fieldName="phone"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        >
-
-                    </odoo.controls.OField>
+                        app:iconResource="@drawable/ic_action_phone"></odoo.controls.OField>
 
                     <odoo.controls.OField
-                        android:id="@+id/date_valid_before"
-                        app:controlLabel="@string/date_valid_before"
+                        android:id="@+id/mobile_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="date_valid_before"
-                        app:fieldTextAppearance="?android:textAppearanceMedium">
-
-                    </odoo.controls.OField>
-
-                    <odoo.controls.OField
-                        android:id="@+id/date_updated"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:controlLabel="@string/date_updated"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="date_updated"
+                        app:fieldName="mobile"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        >
+                        app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>
 
-                    </odoo.controls.OField>
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:id="@+id/full_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:controlLabel="@string/label_address"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldName="full_address"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_location"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldName="country_id"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"></odoo.controls.OField>
 
 
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldName="comment"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_notes_content"></odoo.controls.OField>
                 </odoo.controls.OForm>
             </LinearLayout>
         </RelativeLayout>
     </com.odoo.widgets.parallax.ParallaxScrollView>
 
     <ScrollView
-        android:id="@+id/riskScrollViewEdit"
+        android:id="@+id/customerScrollViewEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -166,12 +160,12 @@
         android:visibility="gone">
 
         <odoo.controls.OForm
-            android:id="@+id/riskFormEdit"
+            android:id="@+id/customerFormEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:orientation="vertical"
-            app:modelName="isg.risk_assesment">
+            app:modelName="res.partner">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -227,9 +221,7 @@
                         app:fieldName="name"
                         app:fieldTextAppearance="?android:textAppearanceLarge"
                         app:showIcon="false"
-                        app:showLabel="false">
-
-                    </odoo.controls.OField>
+                        app:showLabel="false"></odoo.controls.OField>
 
                     <View style="@style/ViewSeparator" />
 
@@ -239,9 +231,7 @@
                         android:layout_height="wrap_content"
                         app:fieldName="is_company"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
-                        app:showLabel="false">
-
-                    </odoo.controls.OField>
+                        app:showLabel="false"></odoo.controls.OField>
 
                     <odoo.controls.OField
                         android:id="@+id/parent_id"
@@ -250,20 +240,91 @@
                         app:fieldName="parent_id"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         app:showLabel="false"
-                        app:widgetType="SearchableLive">
+                        app:widgetType="SearchableLive"></odoo.controls.OField>
 
-                    </odoo.controls.OField>
-
-
-
-
-
-
-                    <!--<View
+                    <View
                         style="@style/ViewSeparator"
-                        android:layout_marginLeft="72dp" />-->
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="street"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_location"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="street2"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="city"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="zip"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="country_id"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:widgetType="SearchableLive"></odoo.controls.OField>
+
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="email"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_message"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="website"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_universe"></odoo.controls.OField>
+
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
 
 
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="phone"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_phone"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="mobile"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_mobile"></odoo.controls.OField>
+
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldName="comment"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        app:iconResource="@drawable/ic_action_notes_content"></odoo.controls.OField>
 
                 </LinearLayout>
 
