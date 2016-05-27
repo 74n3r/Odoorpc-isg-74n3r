@@ -18,7 +18,7 @@ public class RiskAsessmentmodel extends OModel {
     OColumn name = new OColumn("name", OVarchar.class).setName("name");
     OColumn partner_id = new OColumn("partner_id", ResPartner.class, OColumn.RelationType.ManyToOne);
     OColumn assesment_method = new OColumn("assesment_method", RiskAsessment_method_model.class, OColumn.RelationType.ManyToOne);
-   // OColumn procedure_id = new OColumn("procedure_id", RiskAsessmentmodel.class, OColumn.RelationType.ManyToOne);
+    OColumn procedure_id = new OColumn("procedure_id", RiskAsessment_procedure_model.class, OColumn.RelationType.ManyToOne);
     OColumn subject = new OColumn("subject", OVarchar.class).setName("subject");
     OColumn date_performed = new OColumn("date_performed", ODate.class);
     OColumn date_valid_before = new OColumn("date_valid_before", ODate.class);

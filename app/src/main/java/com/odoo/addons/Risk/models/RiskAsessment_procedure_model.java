@@ -4,24 +4,22 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import com.odoo.base.addons.res.ResPartner;
 import com.odoo.core.orm.OModel;
 import com.odoo.core.orm.fields.OColumn;
-import com.odoo.core.orm.fields.types.OSelection;
 import com.odoo.core.orm.fields.types.OVarchar;
 import com.odoo.core.support.OUser;
 
-public class RiskAsessment_method_model extends OModel {
-    public static final String TAG = RiskAsessment_method_model.class.getSimpleName();
+public class RiskAsessment_procedure_model extends OModel {
+    public static final String TAG = RiskAsessment_procedure_model.class.getSimpleName();
 
-    public static final String AUTHORITY = "com.odoo.addons.Risk.isg_risk_assesment_method";
+    public static final String AUTHORITY = "com.odoo.addons.Risk.isg_risk_assesment_procedure";
     OColumn name = new OColumn("name", OVarchar.class).setName("name");
-    OColumn type=new OColumn("type", OSelection.class);
-    OColumn procedure_id = new OColumn("procedure_id", RiskAsessment_procedure_model.class, OColumn.RelationType.ManyToOne);
+    OColumn partner_id = new OColumn("partner_id", ResPartner.class, OColumn.RelationType.ManyToOne);
 
 
-
-    public RiskAsessment_method_model(Context context, OUser user) {
-        super(context, "isg.risk_assesment.method", user);
+    public RiskAsessment_procedure_model(Context context, OUser user) {
+        super(context, "isg.risk_assesment.procedure", user);
         setHasMailChatter(true);
     }
 

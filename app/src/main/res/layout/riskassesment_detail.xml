@@ -110,6 +110,18 @@
                     <!--  app:iconResource="@drawable/ic_action_phone"-->
                  </odoo.controls.OField>
 
+                    <odoo.controls.OField
+                        android:id="@+id/assesment_procedure"
+                        app:controlLabel="@string/assesment_procedure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldName="assesment_method"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        >
+                        <!--  app:iconResource="@drawable/ic_action_phone"-->
+                    </odoo.controls.OField>
+
                 <!-- <odoo.controls.OField
                      android:id="@+id/procedure_id"
                      android:layout_width="match_parent"
