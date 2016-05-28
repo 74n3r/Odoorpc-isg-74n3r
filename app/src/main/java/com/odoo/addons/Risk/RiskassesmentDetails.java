@@ -1,5 +1,7 @@
 package com.odoo.addons.Risk;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -9,6 +11,7 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,6 +32,10 @@ import com.odoo.core.utils.OAppBarUtils;
 import com.odoo.core.utils.OResource;
 import com.odoo.core.utils.OStringColorUtil;
 import com.odoo.widgets.parallax.ParallaxScrollView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import odoo.controls.OField;
 import odoo.controls.OForm;
@@ -56,10 +63,53 @@ public class RiskassesmentDetails extends OdooCompatActivity
     private String newImage = null;
     private RiskAsessments.Type partnerType = RiskAsessments.Type.Riskassesment;
 
+    public List<String> list_parent;
+    public acilir_liste_modul expand_adapter;
+    public HashMap<String, List<String>> list_child;
+    public ExpandableListView expandlist_view;
+    public List<String> action_list;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.riskassesment_detail);
+
+       expandlist_view = (ExpandableListView)findViewById(R.id.expandableListView);
+
+        Hazirla();
+
+
+        expand_adapter = new acilir_liste_modul(getApplicationContext(), list_parent, list_child);
+        expandlist_view.setAdapter(expand_adapter);
+        expandlist_view.setClickable(true);
+
+        expandlist_view.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
+                String child_name = (String)expand_adapter.getChild(groupPosition, childPosition);
+                AlertDialog.Builder builder = new AlertDialog.Builder(RiskassesmentDetails.this);
+                builder.setMessage(child_name)
+                        .setTitle("Deneme isg liste")
+                        .setCancelable(false)
+                        .setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
+                return false;
+            }
+        });
+
+
+
+
         OAppBarUtils.setAppBar(this, false);
         fileManager = new OFileManager(this);
         actionBar = getSupportActionBar();
@@ -324,5 +374,39 @@ public class RiskassesmentDetails extends OdooCompatActivity
                 }
             }
         }
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+   public void Hazirla()
+    {
+        list_parent = new ArrayList<String>();
+        list_child = new HashMap<String, List<String>>();
+
+        list_parent.add("Action");
+
+        action_list = new ArrayList<String>();
+
+        action_list.add("Delete");
+        action_list.add("Duplicate");
+
+        list_child.put(list_parent.get(0),action_list);
+
+
+    }
+
+
+
 }

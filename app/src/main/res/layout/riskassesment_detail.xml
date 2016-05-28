@@ -44,7 +44,20 @@
                 android:layout_below="@android:id/title"
                 android:background="#ffffff"
                 android:orientation="vertical"
-                android:paddingTop="@dimen/default_16dp">
+                android:paddingTop="@dimen/default_16dp"
+                android:weightSum="1">
+
+                <ExpandableListView
+                    android:id="@+id/expandableListView"
+                    android:layout_width="133dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:choiceMode="singleChoice"
+                    android:visibility="visible"
+                    android:theme="@style/AppTheme.Base"
+                    android:textFilterEnabled="false"
+                    android:foreground="#74000000"
+                    style="@style/Base.CardView" />
 
                 <odoo.controls.OForm
                     android:id="@+id/riskForm"
@@ -63,17 +76,7 @@
 
                     </odoo.controls.OField>
 
-                    <odoo.controls.OField
-                        android:id="@+id/subject"
-                        app:controlLabel="@string/subject"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:fieldLabelColor="@color/theme_secondary"
-                        app:fieldName="subject"
-                        app:fieldTextAppearance="?android:textAppearanceMedium"
-                         >
 
-                    </odoo.controls.OField>
 
 
                     <odoo.controls.OField
@@ -87,10 +90,6 @@
                          >
 
                     </odoo.controls.OField>
-
-                    <View
-                        style="@style/ViewSeparator"
-                        android:layout_marginLeft="72dp" />
 
                     <odoo.controls.OField
                         android:id="@+id/assesment_method"
@@ -117,7 +116,17 @@
                     <!--<View
                         style="@style/ViewSeparator"
                         android:layout_marginLeft="72dp" />-->
+                    <odoo.controls.OField
+                        android:id="@+id/subject"
+                        app:controlLabel="@string/subject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldName="subject"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        >
 
+                    </odoo.controls.OField>
                         <odoo.controls.OField
                         android:id="@+id/date_performed"
 
@@ -153,12 +162,6 @@
                          >
 
                     </odoo.controls.OField>
-
-
-
-                    <View
-                        style="@style/ViewSeparator"
-                        android:layout_marginLeft="72dp" />
 
 
                 </odoo.controls.OForm>

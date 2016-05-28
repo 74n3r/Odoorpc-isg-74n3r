@@ -69,6 +69,7 @@ public class RiskAsessments extends BaseFragment implements ISyncStatusObserverL
     private boolean syncRequested = false;
     private Type mType = Type.Riskassesment;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
